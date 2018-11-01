@@ -13,4 +13,4 @@ galaxy_info:
   galaxy_tags:
     - homeassistant
 
-  dependencies: []
+dependencies: []
