@@ -18,6 +18,7 @@
 
 - name: certbot cron job
   cron:
+    name: renew SSL cert if needed
     minute: 15
     hour: 3
     job: certbot renew --noninteractive --pre-hook "{{ certbot_pre_hook }}" --post-hook "{{ certbot_post_hook }}"
