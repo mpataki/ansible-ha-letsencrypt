@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: ha-letsencrypt
   author: Mat Pataki
   description: 'letsencrypt setup for home assistant'
   company: 'n/a'
