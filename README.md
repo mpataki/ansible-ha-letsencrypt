@@ -21,6 +21,9 @@ Really this should work on any debian based system, but has been tested on a Ras
 - `certbot_post_hook`:
   - Ex. `systemctl restart mosquitto; systemctl start nginx`
   - This is any shell command that you want to run after updating you SSL certs.
+- `certbot_email`:
+  - Ex. `you@your-domain.com`
+  - This is the email that will be pinged when your cert is about to expire (although it should be renewed automatically).
 
 ## Dependencies
 
