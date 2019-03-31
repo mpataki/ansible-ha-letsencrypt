@@ -1,5 +1,7 @@
 # ansible-ha-letsencrypt
 
+[![Build Status](https://travis-ci.org/mpataki/ansible-ha-letsencrypt.svg?branch=master)](https://travis-ci.org/mpataki/ansible-ha-letsencrypt)
+
 [Let's Encrypt](https://letsencrypt.org/) is a free service that provides SSL certificates used for end-to-end encryption on the internet. It can be used to provide certs for HTTPS traffic, as well as any other TLS protocol.
 
 This service mainly consumes a valid hostname, such as `my_house.duckdns.org`, and produces SSL certificants using Let's Encrypt. In addition to obtaining the initial certificates, it will also install a cron job to make sure they are automatically renewed.
