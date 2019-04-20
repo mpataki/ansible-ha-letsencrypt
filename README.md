@@ -26,6 +26,8 @@ Really this should work on any debian based system, but has been tested on a Ras
 - `certbot_email`:
   - Ex. `you@your-domain.com`
   - This is the email that will be pinged when your cert is about to expire (although it should be renewed automatically).
+- `force_new_cert`:
+  - a boolean which can be set force a new certificate
 
 ## Dependencies
 

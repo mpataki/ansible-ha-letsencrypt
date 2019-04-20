@@ -11,10 +11,20 @@
     path: /etc/letsencrypt/keys
   register: stat_result
 
+- name: run pre-hook for certbot challenge
+  command: "{{ certbot_pre_hook }}"
+  ignore_errors: true
+  when: "(not stat_result.stat.exists) or force_new_cert"
+
 - name: get initial cert
-  command: "certbot certonly --standalone -d '{{ certbot_hostnames }}' -n --agree-tos --email '{{ certbot_email }}'"
+  command: "certbot certonly --standalone -d '{{ certbot_hostnames }}' -n --agree-tos --email '{{ certbot_email }}' --expand"
   become: true
-  when: not stat_result.stat.exists
+  when: "(not stat_result.stat.exists) or force_new_cert"
+
+- name: run post-hook for certbot challenge
+  command: "{{ certbot_post_hook }}"
+  ignore_errors: true
+  when: "(not stat_result.stat.exists) or force_new_cert"
 
 - name: certbot cron job
   cron:

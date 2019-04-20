@@ -1,2 +1,3 @@
 ---
 # vars file for ansible-ha-letsencrypt
+force_new_cert: false
