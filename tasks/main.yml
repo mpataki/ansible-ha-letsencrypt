@@ -15,6 +15,7 @@
   command: "{{ certbot_pre_hook }}"
   ignore_errors: true
   when: "(not stat_result.stat.exists) or force_new_cert"
+  become: true
 
 - name: get initial cert
   command: "certbot certonly --standalone -d '{{ certbot_hostnames }}' -n --agree-tos --email '{{ certbot_email }}' --expand"
@@ -25,12 +26,13 @@
   command: "{{ certbot_post_hook }}"
   ignore_errors: true
   when: "(not stat_result.stat.exists) or force_new_cert"
+  become: true
 
 - name: certbot cron job
   cron:
     name: renew SSL cert if needed
-    minute: 15
-    hour: 3
+    minute: '15'
+    hour: '3'
     job: >
       certbot renew --noninteractive
       --pre-hook "{{ certbot_pre_hook }}"
